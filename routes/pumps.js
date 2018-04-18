@@ -26,7 +26,7 @@ router.get('/:name', function(req, res, next){
 
 router.put('/:name', (req, res, next) => {
 	const nameParam = req.params.name;
-	const upump = req.body;
+	let upump = req.body;
 	pump.findOne({pumpName: nameParam}, (err, data) => {
 		data.pumpReason = upump.pumpReason;
 		data.pumpSwitch = upump.pumpSwitch;

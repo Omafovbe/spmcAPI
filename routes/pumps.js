@@ -28,8 +28,8 @@ router.put('/:name', (req, res, next) => {
 	const nameParam = req.params.name;
 	const upump = req.body;
 	pump.findOne({pumpName: nameParam}, (err, data) => {
-		data.pumpReason = upump.pReason;
-		data.pumpSwitch = upump.pSwitch;
+		data.pumpReason = upump.pumpReason;
+		data.pumpSwitch = upump.pumpSwitch;
 		data.save((err, updated) => res.json(updated));
 	});
 });

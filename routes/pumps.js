@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 		.exec((err, pumps) => res.json(pumps));
 });
 
-router.post('/', function(req, res, next) {
+/* router.post('/', function(req, res, next) {
 	const requestBody = req.body;
 	const newPump = new pump(requestBody);
 	newPump.save( (err, saved) => {
@@ -16,7 +16,7 @@ router.post('/', function(req, res, next) {
 			.findOne({_id: saved._id})
 			.exec((err, pump) => res.json(pump))
 	});
-});
+}); */
 
 router.get('/:name', function(req, res, next){
 	const nameParam = req.params.name;

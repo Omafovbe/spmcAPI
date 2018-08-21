@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const pump = require('../model');
+const Model = require('../model');
+const pump = Model.Pump;
+
 
 router.get('/', function(req, res, next) {
   pump.find({})
@@ -18,12 +20,14 @@ router.get('/', function(req, res, next) {
 	});
 }); */
 
+//Get pump by name
 router.get('/:name', function(req, res, next){
 	const nameParam = req.params.name;
 	pump.findOne({pumpName: nameParam})
 	.exec( (err, result) => res.json(result));
 });
 
+//Update Pump by pump name
 router.put('/:name', (req, res, next) => {
 	const nameParam = req.params.name;
 	let upump = req.body;
